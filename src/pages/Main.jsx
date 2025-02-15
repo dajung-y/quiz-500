@@ -1,15 +1,16 @@
 import React from "react";
-import styled from "styled-components";
+import styled, {createGlobalStyle} from "styled-components";
 import { useNavigate } from "react-router-dom";
 import mainImage from "../images/main_image.jpg"
+import Header from "../components/Header";
 
 const Main = () => {
     const navigate = useNavigate();
 
     return (
         <MainContainer>
+            <Header></Header>
             <Image src={mainImage} alt="main image" />
-            <Title>500 Days Test</Title>
             <Button onClick={() => navigate('/quiz')}>시작하기</Button> 
         </MainContainer>
     );
@@ -27,6 +28,7 @@ const MainContainer = styled.div`
 `;
 
 const Title = styled.h1`
+    font-family: 'Font1Bold';
     font-size: 2rem;
     text-weight: bold;
     text-align: center;
@@ -37,20 +39,18 @@ const Image = styled.img`
     width: 650px;
     height:auto;
     object-fit: contain;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 `;
 
 const Button = styled.button`
-    margin-top: auto;
-    margin-bottom: 5rem;
     width: 120px;
     height: 50px;
     text-align: center;
     background-color: #F35A91;
     color: white;
     font-size: 20px;
-    font-weight: bold;
+    font-family: 'Font1Bold';
     border-radius: 5px;
     border: none;
     cursor: pointer;

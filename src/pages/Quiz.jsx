@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Header from "../components/Header";
 import axios from "axios";
 
 const Quiz = () => {
@@ -33,8 +34,7 @@ const Quiz = () => {
         }
     }, [userAnswers]);
 
-    
-
+   
     const handleAnswerClick = (selectedOption) => {
         console.log("선택된 답안:", selectedOption);
 
@@ -51,6 +51,7 @@ const Quiz = () => {
 
     return (
         <Container>
+            <Header></Header>
             {quizData.length > 0 && currentQuestionIndex < quizData.length ? (
                 <>
                     <Question>{quizData[currentQuestionIndex].questionText}</Question>
@@ -76,11 +77,11 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     height: 100vh;
 `;
 
 const Question = styled.h2`
+    font-family: 'Font1Bold';
     font-size: 1.8rem;
     font-weight: bold;
     text-align: center;
@@ -108,6 +109,7 @@ const Button = styled.button`
     background-color: #E55982;
     color: white;
     font-size: 20px;
+    font-family: 'Font1Bold';
     border-radius: 5px;
     border: none;
     cursor: pointer;
